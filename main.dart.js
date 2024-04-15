@@ -81809,7 +81809,7 @@ if(p==null){p=m.y
 if(p==null)p=m.f}p=A.YZ(A.dv(A.c([A.kl("https://raw.githubusercontent.com/DevMortimer/DevMortimer.github.io/master/assets/assets/sda.jpg",B.ih,B.eU,300,500),A.c9("Saint Dominic Academy",n,n,n,n,n,s,n,n),B.aY,B.a5f],r),B.x,B.A,B.v),p)
 o=m.dx
 m=o==null?m.cy:o
-return[l,q,p,A.YZ(A.dv(A.c([A.kl("https://raw.githubusercontent.com/DevMortimer/DevMortimer.github.io/master/assets/assets/bsu.jpg",B.ih,B.eU,300,500),A.c9("Bulacan State University",n,n,n,n,n,s,n,n),B.aY,B.a4F],r),B.x,B.A,B.v),m)][b]},
+return[l,q,p,A.YZ(A.dv(A.c([A.kl("https://raw.githubusercontent.com/DevMortimer/DevMortimer.github.io/master/assets/assets/bsu.png",B.ih,B.eU,300,500),A.c9("Bulacan State University",n,n,n,n,n,s,n,n),B.aY,B.a4F],r),B.x,B.A,B.v),m)][b]},
 $S:492}
 A.agc.prototype={
 $0(){return $.dr().cC("open",["https://github.com/DevMortimer"])},
