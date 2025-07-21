@@ -1,50 +1,48 @@
-name: Deploy SvelteKit to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - master # The branch you are deploying from
+    branches: 'master'
 
 jobs:
-  build:
+  build_site:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Bun
+      - name: Install Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest # Use the latest version of Bun
+          bun-version: latest
 
       - name: Install dependencies
         run: bun install
 
-      - name: Build SvelteKit site
-        # The BASE_PATH is necessary for the site to work correctly on GitHub Pages
-        # It sets the base path to your repository name
-        run: bun run build
+      - name: Build
         env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}
+          BASE_PATH: '/${{ github.event.repository.name }}'
+        run: bun run build
 
-      - name: Upload artifact
+      - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # This is the default output directory for SvelteKit's adapter-static
-          path: ./build
+          # this should match the `pages` option in your adapter-static options
+          path: 'build/'
 
   deploy:
-    needs: build
+    needs: build_site
     runs-on: ubuntu-latest
+
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an authentic source
+      pages: write
+      id-token: write
 
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
